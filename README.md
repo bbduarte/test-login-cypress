@@ -5,7 +5,7 @@
 **Disciplina:** FGA0314 - TESTES DE SOFTWARE - Turma 01 - 2025/2  
 **Professora:** Elaine Venson  
 **Aluno:** Bruno Bernardes Duarte  
-**Matrícula:** 242034483  
+**Matrícula:** 242034483
 
 ## 🎯 Objetivos
 
@@ -16,6 +16,7 @@
 ## 🛠️ Ferramenta Escolhida
 
 **Cypress** - Framework de testes end-to-end em JavaScript que oferece:
+
 - Interface visual e interativa
 - Execução em tempo real dos testes
 - Debugging facilitado
@@ -23,7 +24,7 @@
 
 ## 🌐 Site de Teste
 
-URL: https://practicetestautomation.com/practice-test-login/
+URL: <https://practicetestautomation.com/practice-test-login/>
 
 Este site oferece um formulário de login simples para prática de automação de testes.
 
@@ -47,13 +48,16 @@ test-login-cypress/
 ## 🧪 Casos de Teste Implementados
 
 ### 1. Classes Válidas
+
 - **TC001** - Login com usuário e senha válidos
   - Usuário: `student`
   - Senha: `Password123`
   - Resultado esperado: Login realizado com sucesso
 
 ### 2. Classes Inválidas
+
 - **TC002** - Login com usuário inexistente
+
   - Usuário: `usuarioInexistente`
   - Senha: `Password123`
   - Resultado esperado: Erro "Your username is invalid"
@@ -64,17 +68,21 @@ test-login-cypress/
   - Resultado esperado: Erro "Your password is invalid"
 
 ### 3. Valores Limite
+
 - **TC004** - Login com usuário de 1 caractere
+
   - Usuário: `a`
   - Senha: `Password123`
   - Resultado esperado: Erro "Your username is invalid"
 
 - **TC005** - Login com usuário vazio
+
   - Usuário: (vazio)
   - Senha: `Password123`
   - Resultado esperado: Erro "Your username is invalid"
 
 - **TC006** - Login com senha vazia
+
   - Usuário: `student`
   - Senha: (vazia)
   - Resultado esperado: Erro "Your password is invalid"
@@ -87,13 +95,15 @@ test-login-cypress/
 ## 🚀 Como Executar
 
 ### Pré-requisitos
+
 - Node.js instalado (versão 16 ou superior)
 - npm ou yarn
 
 ### Instalação
+
 ```bash
 # Clone o repositório
-git clone <url-do-repositorio>
+git clone https://github.com/bbduarte/test-login-cypress
 
 # Navegue até o diretório
 cd test-login-cypress
@@ -105,23 +115,27 @@ npm install
 ### Execução dos Testes
 
 #### Modo Interativo (Interface Gráfica)
+
 ```bash
 npm run cypress:open
 ```
 
 #### Modo Headless (Terminal)
+
 ```bash
 npm run cypress:run
 ```
 
 ## 📊 Verificações Implementadas
 
-### Para Casos Válidos:
+### Para Casos Válidos
+
 - Verificação da URL de redirecionamento (`/logged-in-successfully/`)
 - Verificação da presença da mensagem "Congratulations"
 - Verificação da mensagem "successfully logged in"
 
-### Para Casos Inválidos:
+### Para Casos Inválidos
+
 - Verificação da visibilidade do elemento de erro (`#error`)
 - Verificação do conteúdo das mensagens de erro específicas
 - Validação de que o login não foi realizado
@@ -129,13 +143,15 @@ npm run cypress:run
 ## 🎯 Técnicas de Teste Aplicadas
 
 ### Particionamento de Equivalência
+
 - **Classe Válida:** Credenciais corretas (usuário: student, senha: Password123)
-- **Classes Inválidas:** 
+- **Classes Inválidas:**
   - Usuário inexistente
   - Senha incorreta
   - Campos vazios
 
 ### Análise de Valor Limite
+
 - **Limite inferior:** Usuário com 1 caractere
 - **Valor mínimo:** Campos vazios
 - **Combinações:** Ambos os campos vazios
@@ -153,18 +169,18 @@ npm run cypress:run
 Cada teste segue o padrão AAA (Arrange, Act, Assert):
 
 ```javascript
-it('Descrição do teste', () => {
+it("Descrição do teste", () => {
   // Arrange: Preparação (beforeEach já navega para a página)
-  
+
   // Act: Ação
-  cy.get('#username').type('valor')
-  cy.get('#password').type('valor')
-  cy.get('#submit').click()
-  
+  cy.get("#username").type("valor");
+  cy.get("#password").type("valor");
+  cy.get("#submit").click();
+
   // Assert: Verificação
-  cy.get('#error').should('be.visible')
-  cy.get('#error').should('contain', 'mensagem esperada')
-})
+  cy.get("#error").should("be.visible");
+  cy.get("#error").should("contain", "mensagem esperada");
+});
 ```
 
 ## 📝 Conclusão
